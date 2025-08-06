@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3D Card Showcase</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1 class="page-title">Our Work Showcase</h1>
+
+  <div class="slider-container">
+    <button class="nav prev">&#8592;</button>
+    <div class="card-wrapper" id="cardWrapper">
+      <!-- Card 1 -->
+      <div class="card" data-bg="https://marketplace.canva.com/EAFwckKNjDE/2/0/1600w/canva-black-white-grayscale-portfolio-presentation-vzScEqAI__M.jpg">
+        <img src="https://marketplace.canva.com/EAFwckKNjDE/2/0/1600w/canva-black-white-grayscale-portfolio-presentation-vzScEqAI__M.jpg" alt="Preview"/>
+        <div class="card-text">
+          <h2>Portfolio Design</h2>
+          <p>Modern and minimal portfolio layout.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card" data-bg="https://images.unsplash.com/photo-1518779578993-ec3579fee39f">
+        <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f" alt="Preview"/>
+        <div class="card-text">
+          <h2>Web App UI</h2>
+          <p>Interactive dashboard interface.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card" data-bg="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="Preview"/>
+        <div class="card-text">
+          <h2>Landing Page</h2>
+          <p>Startup-focused hero section design.</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card" data-bg="https://images.unsplash.com/photo-1519125323398-675f0ddb6308">
+        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308" alt="Preview"/>
+        <div class="card-text">
+          <h2>Mobile App</h2>
+          <p>UI/UX for finance app.</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card" data-bg="https://images.unsplash.com/photo-1581092919535-1b373a110b4e">
+        <img src="https://images.unsplash.com/photo-1581092919535-1b373a110b4e" alt="Preview"/>
+        <div class="card-text">
+          <h2>AI Project</h2>
+          <p>ML dashboard for predictions.</p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="card" data-bg="https://images.unsplash.com/photo-1508780709619-79562169bc64">
+        <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64" alt="Preview"/>
+        <div class="card-text">
+          <h2>Analytics App</h2>
+          <p>Visual data story UI.</p>
+        </div>
+      </div>
+    </div>
+    <button class="nav next">&#8594;</button>
+  </div>
+  <script>
+  const cards = document.querySelectorAll('.card');
+  const body = document.body;
+  const wrapper = document.getElementById("cardWrapper");
+
+  cards.forEach(card => {
+    card.addEventListener("mouseenter", () => {
+      const bg = card.getAttribute("data-bg");
+      body.style.backgroundImage = `url(${bg})`;
+    });
+  });
+
+  // Slider
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+  let scrollAmount = 0;
+
+  nextBtn.addEventListener("click", () => {
+    scrollAmount += wrapper.clientWidth * 0.6;
+    wrapper.scrollTo({ left: scrollAmount, behavior: "smooth" });
+  });
+
+  prevBtn.addEventListener("click", () => {
+    scrollAmount -= wrapper.clientWidth * 0.6;
+    wrapper.scrollTo({ left: scrollAmount, behavior: "smooth" });
+  });
+</script>
+
+</body>
+</html>
